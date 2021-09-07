@@ -1,5 +1,7 @@
 import { Construct, SecretValue, Stack, StackProps } from '@aws-cdk/core';
 import { CodePipeline, CodePipelineSource, ShellStep } from "@aws-cdk/pipelines";
+import { CdkpipelinesDemoStage } from './cdkpipelines-demo-stage';
+
 export class CdkpipelinesDemoPipelineStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
@@ -23,6 +25,8 @@ export class CdkpipelinesDemoPipelineStack extends Stack {
     });
 
     // This is where we add the application stages
-    // ...
+    pipeline.addStage(new CdkpipelinesDemoStage(this, 'PreProd', {
+      env: { account: '969171869770', region: 'us-west-1' }
+    }));
   }
 }

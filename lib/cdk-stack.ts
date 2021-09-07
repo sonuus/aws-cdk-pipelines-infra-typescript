@@ -29,6 +29,6 @@ export class CdkStack extends cdk.Stack {
 
         const vpc = new VpcStack(this, `${target_environment}${logical_id_prefix}InfrastructureVpc`, {})
 
-        const buckets_access_logs = new S3BucketZonesStack(this, `${target_environment}${logical_id_prefix}BucketZones`, {})
+        const buckets = new S3BucketZonesStack(this, `${target_environment}${logical_id_prefix}BucketZones`, {})
     }
 }
