@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import 'source-map-support/register'
 import * as cdk from '@aws-cdk/core';
-import { CdkpipelinesDemoPipelineStack } from '../lib/cdkpipelines-demo-pipeline-stack';
+// import { CdkpipelinesDemoPipelineStack } from '../lib/cdkpipelines-demo-pipeline-stack';
 import { CdkStack } from '../lib/cdk-stack';
 
 const app = new cdk.App();
@@ -10,7 +10,7 @@ const app = new cdk.App();
 //   env: { account: '969171869770', region: 'us-west-1' },
 // });
 
-app.synth();
+// app.synth();
 
 new CdkStack(app, 'CdkInfraStack', {
   /* If you don't specify 'env', this stack will be environment-agnostic.
