@@ -25,6 +25,7 @@ import { Bucket } from '@aws-cdk/aws-s3'
 
 const target_environment = 'DEV'
 const mappings = get_environment_configuration(target_environment)
+console.log(`mappings=${JSON.stringify(mappings)}`)
 const vpc_cidr = mappings[VPC_CIDR]
 const logical_id_prefix = get_logical_id_prefix()
 const resource_name_prefix = get_resource_name_prefix()
@@ -81,7 +82,7 @@ export class S3BucketZonesStack extends cdk.Construct {
 
         s3_kms_key.addToResourcePolicy(
             new iam.PolicyStatement({
-                principals: [new iam.AccountPrincipal(mappings.account_id)],
+                principals: [new iam.AccountPrincipal(mappings.ACCOUNT_ID)],
                 actions: ['kms:Encrypt', 'kms:Decrypt', 'kms:ReEncrypt*', 'kms:GenerateDataKey*', 'kms:DescribeKey'],
                 resources: ['*'],
                 effect: iam.Effect.ALLOW,

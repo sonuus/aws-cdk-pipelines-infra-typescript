@@ -27,8 +27,10 @@ export class VpcStack extends cdk.Construct {
     super(scope, id);
 
     const mappings = get_environment_configuration(target_environment)
+    
     const vpc_cidr = mappings[VPC_CIDR]
     const logical_id_prefix = get_logical_id_prefix()
+    console.log(`logical_id_prefix=${logical_id_prefix}`)
 
     const vpc = new ec2.Vpc(this, `${logical_id_prefix}vpc`, { cidr: vpc_cidr })
     const shared_security_group_ingress = new ec2.SecurityGroup(

@@ -42,6 +42,7 @@ export const GLUE_CONNECTION_AVAILABILITY_ZONE = 'glue_connection_availability_z
 export const GLUE_CONNECTION_SUBNET = 'glue_connection_subnet'
 
 export function get_local_configuration(environment: String): any {
+    console.log(`Enviroment=${environment}`)
     const local_mapping = {
         DEPLOYMENT: {
             ACCOUNT_ID: '969171869770',
@@ -117,9 +118,13 @@ export function get_all_configurations(): any {
 }
 
 export function get_logical_id_prefix(): any {
-    return get_local_configuration(DEPLOYMENT)[LOGICAL_ID_PREFIX]
+    
+    // const x= get_local_configuration(DEPLOYMENT)[LOGICAL_ID_PREFIX]
+    
+    // console.log(`x=${x}`)
+    return 'DataLakeTypeScript'
 }
 
 export function get_resource_name_prefix(): any {
-    return get_local_configuration(DEPLOYMENT)[RESOURCE_NAME_PREFIX]
+    return 'abc' //get_local_configuration(DEPLOYMENT)[RESOURCE_NAME_PREFIX]
 }
