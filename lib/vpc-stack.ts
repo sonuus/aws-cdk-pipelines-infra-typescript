@@ -84,6 +84,46 @@ export class VpcStack extends cdk.Construct {
         value: vpc.privateSubnets[0].subnetId,
         exportName: mappings[SUBNET_ID_1],
     })
+    
+    new cdk.CfnOutput(this, `${target_environment}${logical_id_prefix}VpcAvailabilityZone1')`, {
+        value: vpc.privateSubnets[0].availabilityZone,
+        exportName: mappings[AVAILABILITY_ZONE_1],
+    })
+    
+    new cdk.CfnOutput(this, `${target_environment}${logical_id_prefix}VpcRouteTable1')`, {
+        value: vpc.privateSubnets[0].routeTable.routeTableId,
+        exportName: mappings[ROUTE_TABLE_1],
+    })
+    
+    new cdk.CfnOutput(this, `${target_environment}${logical_id_prefix}SharedSecurityGroup')`, {
+        value: shared_security_group_ingress.securityGroupId,
+        exportName: mappings[SHARED_SECURITY_GROUP_ID],
+    })
+    
+    // new cdk.CfnOutput(this, `${target_environment}${logical_id_prefix}VpcPrivateSubnet1')`, {
+    //     value: vpc.privateSubnets[0].subnetId,
+    //     exportName: mappings[SUBNET_ID_1],
+    // })
+    
+    // new cdk.CfnOutput(this, `${target_environment}${logical_id_prefix}VpcPrivateSubnet1')`, {
+    //     value: vpc.privateSubnets[0].subnetId,
+    //     exportName: mappings[SUBNET_ID_1],
+    // })
+    
+    // new cdk.CfnOutput(this, `${target_environment}${logical_id_prefix}VpcPrivateSubnet1')`, {
+    //     value: vpc.privateSubnets[0].subnetId,
+    //     exportName: mappings[SUBNET_ID_1],
+    // })
+    
+    // new cdk.CfnOutput(this, `${target_environment}${logical_id_prefix}VpcPrivateSubnet1')`, {
+    //     value: vpc.privateSubnets[0].subnetId,
+    //     exportName: mappings[SUBNET_ID_1],
+    // })
+    
+    // new cdk.CfnOutput(this, `${target_environment}${logical_id_prefix}VpcPrivateSubnet1')`, {
+    //     value: vpc.privateSubnets[0].subnetId,
+    //     exportName: mappings[SUBNET_ID_1],
+    // })
 
     
   }
