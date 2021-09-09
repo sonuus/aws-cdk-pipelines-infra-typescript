@@ -71,6 +71,37 @@ export class S3BucketZonesStack extends cdk.Construct {
             access_logs_bucket,
             s3Kmskey,
         )
+        
+        
+        new cdk.CfnOutput(this, 
+        `${target_environment}${logical_id_prefix}KmsKeyArn')`, {
+        value: s3Kmskey.keyArn,
+        exportName: mappings.S3_KMS_KEY })
+        
+        
+        new cdk.CfnOutput(this, 
+        `${target_environment}${logical_id_prefix}AccessLogsBucketName')`, {
+        value: access_logs_bucket.bucketName,
+        exportName: mappings.S3_ACCESS_LOG_BUCKET })
+        
+        
+        new cdk.CfnOutput(this, 
+        `${target_environment}${logical_id_prefix}RawBucketName')`, {
+        value: raw_bucket.bucketName,
+        exportName: mappings.S3_RAW_BUCKET })
+        
+        new cdk.CfnOutput(this, 
+        `${target_environment}${logical_id_prefix}ConformedBucketName')`, {
+        value: conformed_bucket.bucketName,
+        exportName: mappings.S3_CONFORMED_BUCKET })
+        
+        new cdk.CfnOutput(this, 
+        `${target_environment}${logical_id_prefix}PurposeBuiltBucketName')`, {
+        value: purpose_built_bucket.bucketName,
+        exportName: mappings.S3_PURPOSE_BUILT_BUCKET })
+        
+        
+        
     }
 
     private createKMSKey(deployment_account_id: string, logical_id_prefix: string, resource_name_prefix: string): kms.Key {
